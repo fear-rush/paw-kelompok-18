@@ -29,11 +29,11 @@ db.mongoose
   });
 
 // Simple GET Request
-app.get("/", (req, res) => {
-  res.json({
-    message: "Welcome"
-  });
-});
+// app.get("/", (req, res) => {
+//   res.json({
+//     message: "Welcome"
+//   });
+// });
 
 require('./app/routes/todo.routes')(app);
 
