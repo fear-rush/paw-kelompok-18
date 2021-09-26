@@ -13,7 +13,7 @@ This is a basic CRUD (Create, Read, Update, Delete) with Node.js for server-side
 1. Create folder in C:/ and name it with `data`
 2. Create folder in C:/data and name it with `db`
 3. Start MongoDB server with `mongos` running in background
-4. Connect to localhost database `http://127.0.0.1:27017`
+4. Open MongoDB Compass and connect to localhost database `http://127.0.0.1:27017`
 5. Create new collection and name it `todoDB`
 6. Move to directory `./todo_crud/TodoApp/`
 7. Run `node server.js`
@@ -29,7 +29,6 @@ This is a basic CRUD (Create, Read, Update, Delete) with Node.js for server-side
 | router.get('/', todo.findOne)      | get specific todo with specified id     |
 | router.put('/:id', todo.update)    | update specific todo with specified id  |
 | router.delete('/:id', todo.delete) | delete specific todo with specified id  |
-|
 
 ## 5. Team Member
 1. Muhammad Firas Zahid Suryaatmaja (19/439816/TK/48546)
