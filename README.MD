@@ -29,10 +29,11 @@ This is a basic CRUD (Create, Read, Update, Delete) with Node.js for server-side
 | router.get('/:id', todo.findOne)   | get specific todo with specified id     |
 | router.put('/:id', todo.update)    | update specific todo with specified id  |
 | router.delete('/:id', todo.delete) | delete specific todo with specified id  |
+| router.patch('/:id', todo.patch)   | update one field of todo with specified id |
 
 ## 5. Team Member
 1. Muhammad Firas Zahid Suryaatmaja (19/439816/TK/48546)
-2. Wahyu Cahyo W 
+2. Wahyu Cahyo W (19/444077/TK/49273)
 3. Vincent Colin (19/44076/48272)
 4. Marthasya Mumtahanan Mustaqimah
 5. Taqwim
