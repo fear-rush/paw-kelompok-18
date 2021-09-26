@@ -26,7 +26,7 @@ This is a basic CRUD (Create, Read, Update, Delete) with Node.js for server-side
 | -----------------------------------|-----------------------------------------|
 | router.post('/', todo.create)      | create a new todo                       |
 | router.get('/',  todo.findAll)     | get all todo in the database            |
-| router.get('/', todo.findOne)      | get specific todo with specified id     |
+| router.get('/:id', todo.findOne)   | get specific todo with specified id     |
 | router.put('/:id', todo.update)    | update specific todo with specified id  |
 | router.delete('/:id', todo.delete) | delete specific todo with specified id  |
 
