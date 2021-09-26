@@ -31,7 +31,7 @@ db.mongoose
 // Simple GET Request
 app.get("/", (req, res) => {
   res.json({
-    message: "Welcome"
+    message: "Aplikasi CRUD berhasil dijalankan"
   });
 });
 
