@@ -10,7 +10,7 @@ module.exports = app => {
   router.get('/', todo.findAll);
 
   //menampilkan todo dengan specified id
-  router.get('/', todo.findOne);
+  router.get('/:id', todo.findOne);
 
   //update todo dengan specified id
   router.put('/:id', todo.update);
