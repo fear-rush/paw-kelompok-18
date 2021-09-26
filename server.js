@@ -28,12 +28,11 @@ db.mongoose
     process.exit();
   });
 
-// Simple GET Request
-// app.get("/", (req, res) => {
-//   res.json({
-//     message: "Welcome"
-//   });
-// });
+app.get("/", (req, res) => {
+  res.json({
+    message: "Aplikasi CRUD berhasil dijalankan"
+  });
+});
 
 require('./app/routes/todo.routes')(app);
 
