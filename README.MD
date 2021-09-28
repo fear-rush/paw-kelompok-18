@@ -6,7 +6,7 @@ This is a basic CRUD (Create, Read, Update, Delete) with Node.js for server-side
 
 ## 2. Requirements
 1. Install MongoDB and MongoDB Compass on your local machine
-3. Install Postman
+3. Install Postman on your local machine
 2. Install dependencies with `npm install`
 
 ## 3. How to Use
@@ -35,5 +35,6 @@ This is a basic CRUD (Create, Read, Update, Delete) with Node.js for server-side
 1. Muhammad Firas Zahid Suryaatmaja (19/439816/TK/48546)
 2. Wahyu Cahyo W (19/444077/TK/49273)
 3. Vincent Colin (19/44076/48272)
-4. Marthasya Mumtahanan Mustaqimah
-5. Taqwim
+4. Marthasya Mumtahanah Mustaqimah (19/444059/TK/49255)
+5. Taqwim (16/400380/TK/45394)
+
