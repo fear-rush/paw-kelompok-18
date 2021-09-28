@@ -17,6 +17,9 @@ module.exports = app => {
 
   // delete todo dengan specidfied id
   router.delete('/:id', todo.delete);
+  
+  // patch field todo dengan value baru
+  router.patch('/:id', todo.patch);
 
   app.use('/api/todo', router);
 };

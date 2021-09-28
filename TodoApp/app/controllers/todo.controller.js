@@ -94,3 +94,42 @@ exports.delete = (req, res) => {
     });
 };
 
+// update salah satu atribut todo dengan id yang ditentukan
+exports.patch = (req, res) => {
+  const id = req.params.id;
+
+  const key = req.body.key;
+  const value = req.body.value;
+
+ // tentukan apakah request body valid
+ switch (key){
+  case 'title':
+    var updatedField = {
+      title: value
+    }
+    break;
+  case 'description':
+    var updatedField = {
+      description: value
+    }
+      break;
+  default:
+    res.status(400).send({message: `request body tidak valid. Request PATCH gagal`})
+    return;
+}
+
+  Todo.findByIdAndUpdate(id, updatedField)
+    .then(data => {
+      if (!data){
+        res.status(404).send({ message: `tidak ditemukan todo dengan id: ${id}. Request PATCH gagal`});
+      }
+      else {
+        res.status(200).send({message: `Berhasil ubah field ${key} dari ${id} menjadi ${value}`})
+      }
+    })
+
+    .catch(error => {
+      res.status(500).send({ message: `Gagal patch todo dengan id: ${id}`});
+    })
+}
+
