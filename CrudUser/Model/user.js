@@ -1,14 +1,17 @@
-const { Int32 } = require('mongodb')
 const mongoose = require('mongoose')
 
 
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
+        required: true,
+    },
+    salt:{
+        type: String,
         required: true
     },
-    age: {
-        type: Number,
+    hash:{
+        type: String,
         required: true
     }
 })
