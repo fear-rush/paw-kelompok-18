@@ -17,7 +17,7 @@ router.get('/:id', async(req,res) =>{
         const user = await User.findById(req.params.id)
         res.json(user)
     } catch(error){
-        res.send('User dengan id:' + req.params.id + ' tidak dapat ditemukan')
+        res.status(404).send('User dengan id:' + req.params.id + ' tidak dapat ditemukan')
     }
 })
 
@@ -59,7 +59,7 @@ router.delete('/:id',async(req,res) => {
         await user.remove()
         res.send('User dengan id:' + req.params.id + ' berhasil dihapus')
     } catch (error) {
-        res.send('User dengan id:' + req.params.id + ' gagal dihapus')
+        res.status(500).send('User dengan id:' + req.params.id + ' gagal dihapus')
     }
 })
 router.post('/auth', async(req,res) => {
@@ -69,11 +69,13 @@ router.post('/auth', async(req,res) => {
         if (auth.createHash(req.body.password + user.salt) === user.hash){
             res.status(200).send(user.id)
         }
-        else throw auth.createHash("gagal login")
+        else throw auth.createHash("no match")
     }
     catch(err){
-        res.status(401).send(err)
+        res.status(400).send(err)
+        console.log(req.body)
     }
 })
+
 
 module.exports = router
