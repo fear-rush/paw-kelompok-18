@@ -1,6 +1,5 @@
 import LoginForm from "./loginComponents/LoginForm";
 import Cookie from 'universal-cookie';
-import axios from "axios";
 
 function Login(){
     return(
@@ -22,4 +21,9 @@ function authenticateCookie(){
         return false
     }
 }
-export{Login, authenticateCookie}
+function logOut(){
+    const cookie = new Cookie()
+    cookie.remove("auth")
+    window.location.reload()
+}
+export{Login, authenticateCookie, logOut}
