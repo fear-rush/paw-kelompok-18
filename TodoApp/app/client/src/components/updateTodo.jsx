@@ -21,15 +21,16 @@ export function UpdateTodo({ id, handleClose, handleUpdate}) {
     //   }
     // )
     function handleSubmit(e) {
-      // e.preventDefault();
+      e.preventDefault();
 
       console.log({ id }, { data });
 
       axios
-          .put(`http://localhost:8080/api/todo/${id}`, data)
+          .put(`https://pawtodoserver.herokuapp.com/api/todo/${id}`, data)
           .then((res) => {
               setData({ title: "", description: "" });
               console.log(res.data.message);
+              
           })
           .catch((err) => {
               console.log("Gagal update todo");
@@ -39,8 +40,8 @@ export function UpdateTodo({ id, handleClose, handleUpdate}) {
 
 
   return (
-    <div className='flex items-center justify-center overflow-hidden'>
-    <form className='flex flex-col bg-white rounded-md shadow-md p-14 mt-14' 
+    <div className='flex items-center justify-center overflow-hidden z-20'>
+    <form className='flex flex-col bg-white rounded-md shadow-md p-14 mt-8' 
       onSubmit={(e) => {
         handleSubmit(e);
         handleUpdate();
@@ -51,13 +52,15 @@ export function UpdateTodo({ id, handleClose, handleUpdate}) {
         <textarea className='flex items-center h-24 px-4 w-80 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2 resize-none'
          type='text'
          onChange={handleChange} 
-         name="title"></textarea>
+         name="title"
+         placeholder='Ganti Title'></textarea>
         
         <label className='font-semibold text-lg mt-3'>Description</label>
         <textarea className='flex items-center h-24 px-4 w-80 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2 resize-none' 
         onChange={handleChange} 
         type='text' 
-        name="description"></textarea>
+        name="description"
+        placeholder='Ganti Deskripsi'></textarea>
 
         <button className='flex items-center justify-center h-12 px-6 w-80 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700' 
         type="submit">Submit</button>
