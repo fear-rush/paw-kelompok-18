@@ -9,12 +9,16 @@ function Login(){
 function authenticateCookie(){
     const cookie = new Cookie()
     const authCookie = cookie.get("auth")
-    var request = new XMLHttpRequest()
-    request.open("GET" ,"http://localhost:8080/users/"+authCookie,false)
-    request.send()
-    if (request.status == 200) return true
-    else return false
-    
+    try{
+        var request = new XMLHttpRequest()
+        request.open("GET" ,"http://localhost:8080/users/"+authCookie,false)
+        request.send()
+        if (request.status == 200) return true
+        else return false
+    }
+    catch{
+        return false
+    }
 }
 function logOut(){
     const cookie = new Cookie()
