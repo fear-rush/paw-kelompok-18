@@ -1,12 +1,12 @@
 import { ShowTodo } from './components/showTodo';
-import { CreateTodo } from './components/createTodo';
+import { CreateTodoFAB } from './components/createTodoFAB';
 
 function App() {
   return (
-    <div className="App">
-      <div className='bg-gradient-to-r from-green-400 to-blue-500 absolute h-auto w-screen overflow-hidden'>
-        <CreateTodo/>
+    <div className="App h-auto">
+      <div className='bg-gradient-to-r from-green-400 to-blue-500 absolute h-screen w-screen overflow-auto'>
         <ShowTodo/>
+        <CreateTodoFAB/>
       </div>
     </div>
   );

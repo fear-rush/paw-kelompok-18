@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { UpdateTodo } from "./updateTodo";
+import Backdrop from "./backdrops";
 // import Card from "../view/Card";
 
 // function TodoCard({data, handleEdit, handleDelete}) {
@@ -46,7 +47,7 @@ export function ShowTodo() {
   useEffect(
     function() {
       axios
-        .get("http://localhost:8080/api/todo")
+        .get(`https://pawtodoserver.herokuapp.com/api/todo`)
         .then((res) => {
           console.log(res.data);
           setTodo(res.data);
@@ -54,7 +55,7 @@ export function ShowTodo() {
         .catch((err) => {
           console.log(err.message);
         });
-    }, [update]
+    }
   );
 
   function handleEdit(e) {
@@ -69,7 +70,7 @@ export function ShowTodo() {
   }
 
   function handleDelete(e) {
-    axios.delete(`http://localhost:8080/api/todo/${e.target.name}`);
+    axios.delete(`https://pawtodoserver.herokuapp.com/api/todo/${e.target.name}`);
 
     setTodo((data) => {
         return data.filter((todo) => todo.id !== e.target.name);
@@ -98,7 +99,8 @@ export function ShowTodo() {
           </ul>
         </div>
         {open ? (
-          <div className='absolute top-0 left-0 h-screen w-screen flex justify-center items-center bg-black bg-opacity-40'>
+          <div>
+          <div className='absolute top-20vh left-calc z-20 h-auto w-auto flex justify-center items-center'>
             <div className='relative'>
               <p className='absolute top-16 right-4 text-3xl mb-16 text-red-500 cursor-pointer' onClick={handleClose}>
                   &times;
@@ -107,13 +109,13 @@ export function ShowTodo() {
                 id={id}
                 handleClose={handleClose}
                 handleUpdate={handleUpdate}        
-      
               />
 
             </div>
 
           </div>
-
+          <Backdrop onCancel={handleClose}/>
+          </div>
         ): ("")}
       </div>     
   )
