@@ -1,5 +1,10 @@
-# TODO CRUD DOCUMENTATION
+# TODO CRUD DOCUMENTATION (TodoApp v1)
 
+
+## Important
+Below this line is an old TodoAppv1 Documentation. This docs has been updated to v2. To open this app simply go to 
+a. Client: https://pawtodoapp.netlify.app/
+b. Server: https://pawtodoserver.herokuapp.com/
 
 ## 1. App Description
 This is a basic CRUD (Create, Read, Update, Delete) with Node.js for server-side processing, Express.js for routing HTTP request, and MongoDB for database.
@@ -36,5 +41,4 @@ This is a basic CRUD (Create, Read, Update, Delete) with Node.js for server-side
 2. Wahyu Cahyo W (19/444077/TK/49273)
 3. Vincent Colin (19/44076/48272)
 4. Marthasya Mumtahanah Mustaqimah (19/444059/TK/49255)
-5. Taqwim (16/400380/TK/45394)
 
