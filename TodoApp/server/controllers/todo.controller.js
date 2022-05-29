@@ -1,30 +1,12 @@
 const db = require('../models');
 const Todo = db.todo;
+const {createTodo} = require("./todo/createTodo")
+const {updateTodo} = require("./todo/updateTodo")
+const {deleteTodo} = require("./todo/deleteTodo")
 
 
 // Membuat todo baru
-exports.create = (req, res) => {
-  if (!req.body.title || !req.body.description) {
-    res.status(400).send({ message: 'Title atau deskripsi tidak boleh kosong '});
-    return;
-  }
-
-  const todo = new Todo({
-    title: req.body.title,
-    description: req.body.description
-  });
-
-  todo
-    .save(todo)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(error => {
-      res.status(500).send({
-        message: 'Terjadi error ketika membuat list todo'
-      });
-    });
-};
+exports.create = createTodo
 
 // Menampilkan semua todo
 exports.findAll = (req, res) => {
@@ -57,42 +39,10 @@ exports.findOne = (req, res) => {
 };
 
 // Update todo dengan specified id
-exports.update = (req, res) => {
-  if(!req.body) {
-    return res.status(400).send({ message: 'masukkan data yang akan diupdate'});
-  }
-
-  const id = req.params.id;
-
-  Todo.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
-    .then(data => {
-      if (!data) {
-        res.status(404).send({ message: `Update todo dengan id: ${id} gagal`});
-      } else res.send({ message: `Todo dengan id: ${id} berhasil diupdate`});
-    })
-    .catch(error => {
-      res.status(500).send({ message: `Update todo dengan id: ${id} gagal`});
-    });
-};
-
-
+exports.update = updateTodo
 
 // delete todo dengan specified id
-exports.delete = (req, res) => {
-  const id = req.params.id;
-
-  Todo.findByIdAndRemove(id)
-    .then(data => {
-      if (!data) {
-        res.status(404).send({ message: `Gagal delete todo dengan id: ${id}`});
-      } else {
-        res.send({ message: `Todo dengan id: ${id} berhasil didelete`});
-      }
-    })
-    .catch(error => {
-      res.status(500).send({ message: `Gagal delete todo dengan id: ${id}`});
-    });
-};
+exports.delete = deleteTodo
 
 // update salah satu atribut todo dengan id yang ditentukan
 exports.patch = (req, res) => {
